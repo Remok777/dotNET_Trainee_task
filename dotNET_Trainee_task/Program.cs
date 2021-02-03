@@ -22,7 +22,7 @@ namespace dotNET_Trainee_task
                 try
                 {
                     var context = services.GetRequiredService<ContactContext>();
-                    SampleDataCSV.Initialize(context);
+                    SampleData.Initialize(context);
                 }
                 catch(Exception ex)
                 {

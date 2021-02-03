@@ -29,7 +29,7 @@ namespace dotNET_Trainee_task
                         Salary = 500
                     }
                 );
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
     }
 }

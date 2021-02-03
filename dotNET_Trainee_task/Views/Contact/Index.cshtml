@@ -1,0 +1,61 @@
+﻿@{
+}
+<!DOCTYPE html>
+<html>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <p style="margin-right: 10px;">Id</p>
+                </th>
+                <th>
+                    <p style="margin-left: 10px;">Name</p>
+                </th>
+                <th>
+                    <p style="margin-left: 10px;">Date of birth</p>
+                </th>
+                <th>
+                    <p style="margin-left: 10px;">Married</p>
+                </th>
+                <th>
+                    <p style="margin-left: 10px;">Phone</p>
+                </th>
+                <th>
+                    <p style="margin-left: 10px;">Salary</p>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.Contacts)
+            {
+                <tr>
+                    <td>
+                        <p>@item.Id</p>
+                    </td>
+                    <td>
+                        <p style="margin-left: 10px;">@item.Name</p>
+                    </td>
+                    <td>
+                        <p style="margin-left: 10px;">@item.DateOfBirth.ToShortDateString()</p>
+                    </td>
+                    <td>
+                        <p style="margin-left: 10px;">@item.Maried</p>
+                    </td>
+                    <td>
+                        <p>@item.Phone</p>
+                    </td>
+                    <td>
+                        <p style="margin-left: 10px;">@item.Salary$</p>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <form method="post">
+        <input type="file" name="path" accept=".csv" />
+        <input type="submit" value="Save" />
+    </form>
+</body>
+</html>
