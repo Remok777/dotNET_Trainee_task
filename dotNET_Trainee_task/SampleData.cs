@@ -9,24 +9,26 @@ using System.Threading.Tasks;
 
 namespace dotNET_Trainee_task
 {
-    public class SampleDataCSV
+    public class SampleData
     {
         public async static void Initialize(ContactContext context)
         {
-            List<Contact> contacts = new List<Contact>();
+            
 
             if(context.Contacts.Any())
             {
                 return;
             }
-            using (var streamReader = new StreamReader("Contacts.csv"))
-            {
-                using (var csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
-                {
-                    contacts.AddRange(csvReader.GetRecords<Contact>().ToList());
-                }
-            }
-            await context.Contacts.AddRangeAsync(contacts);
+            await context.Contacts.AddAsync(
+                    new Contact
+                    {
+                        Name = "John",
+                        DateOfBirth = DateTime.Now,
+                        Maried = true,
+                        Phone = "380665747859",
+                        Salary = 500
+                    }
+                );
             await context.SaveChangesAsync();
         }
     }

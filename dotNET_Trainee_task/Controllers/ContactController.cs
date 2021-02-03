@@ -16,7 +16,6 @@ namespace dotNET_Trainee_task.Controllers
             _db = context;
         }
 
-
         public IActionResult Index()
         {
             return View();
