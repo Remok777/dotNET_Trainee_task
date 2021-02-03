@@ -43,5 +43,32 @@ namespace dotNET_Trainee_task.Controllers
             ViewBag.Contacts = await _db.Contacts.ToListAsync();
             return View();
         }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var contact = await _db.Contacts
+                .FirstOrDefaultAsync(item => item.Id == id);
+            if (contact == null)
+            {
+                return NotFound();
+            }
+            ViewBag.Contacts = contact;
+            return View();
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var contact = await _db.Contacts.FindAsync(id);
+            _db.Contacts.Remove(contact);
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }

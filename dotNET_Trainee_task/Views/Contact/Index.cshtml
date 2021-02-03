@@ -30,26 +30,29 @@
         <tbody>
             @foreach (var item in ViewBag.Contacts)
             {
-                <tr>
-                    <td>
-                        <p>@item.Id</p>
-                    </td>
-                    <td>
-                        <p style="margin-left: 10px;">@item.Name</p>
-                    </td>
-                    <td>
-                        <p style="margin-left: 10px;">@item.DateOfBirth.ToShortDateString()</p>
-                    </td>
-                    <td>
-                        <p style="margin-left: 10px;">@item.Maried</p>
-                    </td>
-                    <td>
-                        <p>@item.Phone</p>
-                    </td>
-                    <td>
-                        <p style="margin-left: 10px;">@item.Salary$</p>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    <p>@item.Id</p>
+                </td>
+                <td>
+                    <p style="margin-left: 10px;">@item.Name</p>
+                </td>
+                <td>
+                    <p style="margin-left: 10px;">@item.DateOfBirth.ToShortDateString()</p>
+                </td>
+                <td>
+                    <p style="margin-left: 10px;">@item.Maried</p>
+                </td>
+                <td>
+                    <p>@item.Phone</p>
+                </td>
+                <td>
+                    <p style="margin-left: 10px;">@item.Salary$</p>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
