@@ -24,6 +24,7 @@ namespace dotNET_Trainee_task.Models
         [MinLength(9)]
         public string Phone { get; set; }
         [Required]
+        [Range(typeof(decimal), "0.00", "9999.99")]
         public decimal Salary { get; set; }
     }
 }
