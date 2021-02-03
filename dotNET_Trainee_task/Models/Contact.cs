@@ -15,3 +15,4 @@ namespace dotNET_Trainee_task.Models
         public decimal Salary { get; set; }
     }
 }
+

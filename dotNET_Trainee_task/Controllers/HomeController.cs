@@ -1,6 +1,7 @@
 ﻿using CsvHelper;
 using dotNET_Trainee_task.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -22,21 +23,6 @@ namespace dotNET_Trainee_task.Controllers
         }
 
         public IActionResult Index()
-        {
-            List<Contact> contactsCSV = new List<Contact>();
-            using (var streamReader = new StreamReader("Contacts.csv"))
-            {
-                using (var csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
-                {
-                    var records = csvReader.GetRecords<Contact>().ToList();
-                    contactsCSV.AddRange(records);
-                }
-            }
-            ViewBag.Contacts = contactsCSV;
-            return View();
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }
